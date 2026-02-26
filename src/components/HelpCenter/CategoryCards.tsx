@@ -1,83 +1,79 @@
-import { FileEdit, Tag, ShoppingCart, UserPlus, ArrowRight } from "lucide-react";
+import { FileEdit, Tag, ShoppingCart, UserPlus, CreditCard, Truck } from "lucide-react";
 import { motion } from "framer-motion";
 
 const categories = [
   {
     title: "契約変更",
-    description: "契約内容の確認・変更手続き",
     icon: FileEdit,
-    gradient: "from-primary/10 to-primary/5",
-    iconBg: "bg-primary/15 text-primary",
-    articles: 3,
+    links: ["名義変更", "プラン変更", "その他"],
   },
   {
     title: "キャンペーン情報",
-    description: "最新のキャンペーン・セール情報",
     icon: Tag,
-    gradient: "from-accent/10 to-accent/5",
-    iconBg: "bg-accent/15 text-accent",
-    articles: 5,
+    links: ["春のキャンペーン", "サマーセール", "秋の感謝祭"],
+  },
+  {
+    title: "お支払い・決済",
+    icon: CreditCard,
+    links: ["クレジットカード", "銀行振込", "後払い", "その他"],
   },
   {
     title: "お買い物後",
-    description: "購入履歴・配送状況・返品交換",
     icon: ShoppingCart,
-    gradient: "from-success/10 to-success/5",
-    iconBg: "bg-success/15 text-success",
-    articles: 8,
+    links: ["購入履歴について", "キャンセル・返品", "ショップとの連絡"],
+  },
+  {
+    title: "お届け・配送",
+    icon: Truck,
+    links: ["配送状況確認", "送料", "届かない場合"],
   },
   {
     title: "会員登録",
-    description: "アカウント作成・ログインについて",
     icon: UserPlus,
-    gradient: "from-warning/10 to-warning/5",
-    iconBg: "bg-warning/15 text-warning",
-    articles: 4,
+    links: ["ログイン", "登録・変更・削除", "メルマガ", "その他"],
   },
 ];
 
 const CategoryCards = () => {
   return (
-    <section className="px-6 py-16 md:py-20">
-      <div className="mx-auto max-w-6xl">
-        <motion.div
-          initial={{ y: 16, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
+    <section className="bg-card px-4 py-10 md:py-14">
+      <div className="mx-auto max-w-3xl">
+        <motion.h2
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="mb-12 text-center"
+          transition={{ duration: 0.4 }}
+          className="mb-6 text-lg font-bold text-foreground"
         >
-          <h2 className="mb-2 font-display text-2xl font-bold text-foreground md:text-3xl">
-            カテゴリから探す
-          </h2>
-          <p className="text-muted-foreground">お探しのトピックを選んでください</p>
-        </motion.div>
+          カテゴリから探す
+        </motion.h2>
 
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-4 sm:grid-cols-2">
           {categories.map((cat, i) => (
-            <motion.a
+            <motion.div
               key={cat.title}
-              href="#"
-              initial={{ y: 24, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: i * 0.07 }}
-              className={`group relative flex flex-col items-start gap-4 overflow-hidden rounded-2xl border border-border bg-gradient-to-br ${cat.gradient} p-6 transition-all duration-300 hover:card-shadow-hover hover:-translate-y-1`}
+              transition={{ duration: 0.35, delay: i * 0.05 }}
+              className="rounded-lg border border-border bg-card p-5 transition-shadow hover:shadow-md"
             >
-              <div className={`flex h-14 w-14 items-center justify-center rounded-2xl ${cat.iconBg}`}>
-                <cat.icon className="h-7 w-7" />
+              <div className="mb-3 flex items-center gap-2.5">
+                <cat.icon className="h-5 w-5 text-primary" />
+                <h3 className="text-sm font-bold text-foreground">{cat.title}</h3>
               </div>
-              <div>
-                <h3 className="mb-1 font-display text-lg font-bold text-card-foreground group-hover:text-primary transition-colors">
-                  {cat.title}
-                </h3>
-                <p className="text-sm text-muted-foreground">{cat.description}</p>
+              <div className="flex flex-wrap gap-2">
+                {cat.links.map((link) => (
+                  <a
+                    key={link}
+                    href="#"
+                    className="text-xs text-primary underline-offset-2 hover:underline"
+                  >
+                    {link}
+                  </a>
+                ))}
               </div>
-              <div className="mt-auto flex w-full items-center justify-between pt-2">
-                <span className="text-xs font-medium text-muted-foreground">{cat.articles} 記事</span>
-                <ArrowRight className="h-4 w-4 text-muted-foreground transition-all group-hover:translate-x-1 group-hover:text-primary" />
-              </div>
-            </motion.a>
+            </motion.div>
           ))}
         </div>
       </div>

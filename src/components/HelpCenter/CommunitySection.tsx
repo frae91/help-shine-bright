@@ -1,33 +1,34 @@
-import { Users, ArrowRight } from "lucide-react";
+import { MessageCircle } from "lucide-react";
 import { motion } from "framer-motion";
 
 const CommunitySection = () => {
   return (
-    <section id="community" className="px-6 py-16 md:py-20">
-      <motion.div
-        initial={{ y: 24, opacity: 0 }}
-        whileInView={{ y: 0, opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
-        className="mx-auto max-w-3xl rounded-3xl hero-gradient p-10 text-center md:p-16"
-      >
-        <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-primary-foreground/15">
-          <Users className="h-8 w-8 text-primary-foreground" />
-        </div>
-        <h2 className="mb-3 font-display text-2xl font-bold text-primary-foreground md:text-3xl">
-          コミュニティ
-        </h2>
-        <p className="mb-8 text-primary-foreground/80">
-          会話に参加しましょう。他のユーザーと情報を共有して、一緒に問題を解決しましょう。
-        </p>
-        <a
-          href="#"
-          className="inline-flex items-center gap-2 rounded-xl bg-primary-foreground px-6 py-3 font-medium text-primary transition-all hover:opacity-90"
+    <section className="bg-card px-4 py-10 md:py-14">
+      <div className="mx-auto max-w-3xl">
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.4 }}
+          className="flex flex-col items-center gap-4 rounded-lg border border-primary/20 bg-primary/5 p-8 text-center md:p-10"
         >
-          コミュニティに参加する
-          <ArrowRight className="h-4 w-4" />
-        </a>
-      </motion.div>
+          <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
+            <MessageCircle className="h-6 w-6 text-primary" />
+          </div>
+          <div>
+            <h3 className="mb-1 text-base font-bold text-foreground">チャットで相談</h3>
+            <p className="text-sm text-muted-foreground">
+              解決しない場合は、お気軽にお問い合わせください。
+            </p>
+          </div>
+          <a
+            href="#"
+            className="rounded-md bg-primary px-6 py-2.5 text-sm font-bold text-primary-foreground transition-opacity hover:opacity-90"
+          >
+            お問い合わせフォーム
+          </a>
+        </motion.div>
+      </div>
     </section>
   );
 };

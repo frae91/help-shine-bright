@@ -1,47 +1,45 @@
-import { ShoppingBag } from "lucide-react";
-import { motion } from "framer-motion";
+import { ShoppingCart, Clock, Star, History, Receipt, Gift } from "lucide-react";
 
 const Navbar = () => {
-  const navItems = [
-    { label: "コミュニティ", href: "#community" },
-    { label: "お問い合わせフォーム", href: "#contact" },
-    { label: "会社概要", href: "#about" },
+  const quickLinks = [
+    { label: "買い物かご", icon: ShoppingCart },
+    { label: "閲覧履歴", icon: Clock },
+    { label: "お気に入り", icon: Star },
+    { label: "購入履歴", icon: History },
+    { label: "クーポン", icon: Gift },
   ];
 
   return (
-    <motion.nav
-      initial={{ y: -20, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.5 }}
-      className="sticky top-0 z-50 border-b border-border bg-card/80 backdrop-blur-xl"
-    >
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <a href="/" className="flex items-center gap-2.5">
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl hero-gradient">
-            <ShoppingBag className="h-5 w-5 text-primary-foreground" />
+    <header className="border-b border-border bg-card">
+      {/* Top banner */}
+      <div className="sale-badge px-4 py-2 text-center text-xs font-bold tracking-wide">
+        🎉 秋の大感謝祭キャンペーン開催中！11月30日まで — 最大50%OFF 🎉
+      </div>
+
+      <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-3">
+        <a href="/" className="flex items-center gap-2">
+          <div className="flex h-9 w-9 items-center justify-center rounded-md bg-primary">
+            <ShoppingCart className="h-5 w-5 text-primary-foreground" />
           </div>
-          <span className="font-display text-xl font-bold text-foreground">ZenShop</span>
+          <div>
+            <span className="text-xl font-bold text-primary">ZenShop</span>
+          </div>
         </a>
 
-        <div className="hidden items-center gap-1 md:flex">
-          {navItems.map((item) => (
+        <nav className="hidden items-center gap-1 md:flex">
+          {quickLinks.map((link) => (
             <a
-              key={item.label}
-              href={item.href}
-              className="rounded-lg px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
+              key={link.label}
+              href="#"
+              className="flex flex-col items-center gap-0.5 px-3 py-1 text-muted-foreground transition-colors hover:text-primary"
             >
-              {item.label}
+              <link.icon className="h-5 w-5" />
+              <span className="text-[10px] font-medium">{link.label}</span>
             </a>
           ))}
-          <a
-            href="#signin"
-            className="ml-2 rounded-lg bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-all hover:opacity-90"
-          >
-            サインイン
-          </a>
-        </div>
+        </nav>
       </div>
-    </motion.nav>
+    </header>
   );
 };
 
