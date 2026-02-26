@@ -1,6 +1,218 @@
 {
-  "name": "Streamer",
-  "author": "Zenplates",
-  "version": "2.0.0",
-  "api_version": 3
+"name": "Help Shine Bright",
+"author": "juliantakano-ship-it",
+"version": "1.0.0",
+"api_version": 3,
+"default_locale": "en-us",
+"settings": [
+  {
+  "label": "brand_group_label",
+  "variables": [
+  {
+  "identifier": "logo",
+  "type": "file",
+  "label": "logo_label",
+  "description": "logo_description"
+  },
+  {
+  "identifier": "favicon",
+  "type": "file",
+  "label": "favicon_label",
+  "description": "favicon_description"
+  },
+  {
+  "identifier": "site_title",
+  "type": "text",
+  "label": "site_title_label",
+  "description": "site_title_description",
+  "value": "Help Shine Bright"
+  },
+  {
+  "identifier": "site_description",
+  "type": "text",
+  "label": "site_description_label",
+  "description": "site_description_description",
+  "value": "Knowledge and support center"
+  }
+  ]
+  },
+  {
+  "label": "colors_group_label",
+  "variables": [
+  {
+  "identifier": "color_brand",
+  "type": "color",
+  "label": "color_brand_label",
+  "description": "color_brand_description",
+  "value": "#0072EF"
+  },
+  {
+  "identifier": "color_text",
+  "type": "color",
+  "label": "color_text_label",
+  "description": "color_text_description",
+  "value": "#333333"
+  },
+  {
+  "identifier": "color_headings",
+  "type": "color",
+  "label": "color_headings_label",
+  "description": "color_headings_description",
+  "value": "#111111"
+  }
+  ]
+  },
+  {
+  "label": "fonts_group_label",
+  "variables": [
+  {
+  "identifier": "font_body",
+  "type": "list",
+  "label": "font_body_label",
+  "description": "font_body_description",
+  "value": "Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
+  "options": [
+  {
+  "label": "Inter / system",
+  "value": "Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'"
+  },
+  {
+  "label": "Serif (Times)",
+  "value": "Georgia, 'Times New Roman', Times, serif"
+  },
+  {
+  "label": "Sans-serif (Arial)",
+  "value": "Arial, 'Helvetica Neue', Helvetica, sans-serif"
+  }
+  ]
+  },
+  {
+  "identifier": "font_headings",
+  "type": "list",
+  "label": "font_headings_label",
+  "description": "font_headings_description",
+  "value": "Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans'",
+  "options": [
+  {
+  "label": "Inter / system",
+  "value": "Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans'"
+  },
+  {
+  "label": "Serif (Baskerville)",
+  "value": "Baskerville, 'Times New Roman', Times, serif"
+  }
+  ]
+  }
+  ]
+  },
+  {
+  "label": "images_group_label",
+  "variables": [
+  {
+  "identifier": "homepage_background_image",
+  "type": "file",
+  "label": "homepage_background_image_label",
+  "description": "homepage_background_image_description"
+  },
+  {
+  "identifier": "community_background_image",
+  "type": "file",
+  "label": "community_background_image_label",
+  "description": "community_background_image_description"
+  }
+  ]
+  },
+  {
+  "label": "search_group_label",
+  "variables": [
+  {
+  "identifier": "instant_search",
+  "type": "checkbox",
+  "label": "instant_search_label",
+  "description": "instant_search_description",
+  "value": true
+  },
+  {
+  "identifier": "scoped_kb_search",
+  "type": "checkbox",
+  "label": "scoped_kb_search_label",
+  "description": "scoped_kb_search_description",
+  "value": true
+  },
+  {
+  "identifier": "scoped_community_search",
+  "type": "checkbox",
+  "label": "scoped_community_search_label",
+  "description": "scoped_community_search_description",
+  "value": true
+  }
+  ]
+  },
+  {
+  "label": "article_page_group_label",
+  "variables": [
+  {
+  "identifier": "show_articles_in_section",
+  "type": "checkbox",
+  "label": "show_articles_in_section_label",
+  "description": "articles_in_section_description",
+  "value": true
+  },
+  {
+  "identifier": "show_article_author",
+  "type": "checkbox",
+  "label": "show_article_author_label",
+  "description": "article_author_description",
+  "value": false
+  },
+  {
+  "identifier": "show_article_comments",
+  "type": "checkbox",
+  "label": "show_article_comments_label",
+  "description": "article_comments_description",
+  "value": false
+  },
+  {
+  "identifier": "show_follow_article",
+  "type": "checkbox",
+  "label": "follow_article_label",
+  "description": "follow_article_description",
+  "value": false
+  },
+  {
+  "identifier": "show_recently_viewed_articles",
+  "type": "checkbox",
+  "label": "recently_viewed_articles_label",
+  "description": "recently_viewed_articles_description",
+  "value": false
+  },
+  {
+  "identifier": "show_related_articles",
+  "type": "checkbox",
+  "label": "related_articles_label",
+  "description": "related_articles_description",
+  "value": false
+  },
+  {
+  "identifier": "show_article_sharing",
+  "type": "checkbox",
+  "label": "article_sharing_label",
+  "description": "article_sharing_description",
+  "value": true
+  }
+  ]
+  },
+  {
+  "label": "footer_group_label",
+  "variables": [
+  {
+  "identifier": "footer_text",
+  "type": "text",
+  "label": "footer_text_label",
+  "description": "footer_text_description",
+  "value": "© Help Shine Bright"
+  }
+  ]
+  }
+  ]
 }
